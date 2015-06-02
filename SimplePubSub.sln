@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "SimplePubSub", "SimplePubSub\SimplePubSub.fsproj", "{2BB32C74-5003-4D21-9DE7-E916C422C4EE}"
+EndProject
+Project("{f2a71f9b-5d33-465a-a702-920d77279786}") = "SimplePubSubTests", "SimplePubSubTests\SimplePubSubTests.fsproj", "{92A24BE5-B874-4E17-B273-959FD3CC8830}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BB32C74-5003-4D21-9DE7-E916C422C4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB32C74-5003-4D21-9DE7-E916C422C4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB32C74-5003-4D21-9DE7-E916C422C4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB32C74-5003-4D21-9DE7-E916C422C4EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A24BE5-B874-4E17-B273-959FD3CC8830}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A24BE5-B874-4E17-B273-959FD3CC8830}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A24BE5-B874-4E17-B273-959FD3CC8830}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A24BE5-B874-4E17-B273-959FD3CC8830}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

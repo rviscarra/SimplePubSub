@@ -1,0 +1,19 @@
+#Autosave files
+*~
+
+# Build/test output
+obj
+bin
+test-results
+
+*.sln.cache
+*.suo
+*.userprefs
+*.usertasks
+*.user
+*.sublime-workspace
+*.mdb
+
+/packages/
+!packages/repositories.config
+
