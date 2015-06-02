@@ -27,7 +27,7 @@ type PubSubTest() =
         let ps = PubSub.createPubSub<int, string>()
         let result = ref "timeout"
 
-        ps |> PubSub.addSuber 0 (fun msg ->
+        ps |> PubSub.addSuber 0 (fun _ msg ->
             result := msg
         )
         ps |> PubSub.publish msg
@@ -40,7 +40,7 @@ type PubSubTest() =
         let ps = PubSub.createPubSub<int, string>()
         let result = ref "timeout"
 
-        ps |> PubSub.addSuber 0 (fun msg ->
+        ps |> PubSub.addSuber 0 (fun _ msg ->
             result := msg
         )
         ps |> PubSub.delSuber 0

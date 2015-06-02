@@ -1,10 +1,10 @@
 ﻿module BoW.Util.PubSub
 
-type PublishCallback<'Msg> = 
-    'Msg -> unit
+type PublishCallback<'Id, 'Msg> = 
+    'Id -> 'Msg -> unit
 
 type internal PubSubCommand<'Id, 'Msg when 'Id : comparison> =
-    | AddSuber of 'Id * PublishCallback<'Msg>
+    | AddSuber of 'Id * PublishCallback<'Id, 'Msg>
     | DelSuber of 'Id
     | Publish  of 'Msg
     | Stop
@@ -14,13 +14,13 @@ type PubSub<'Id, 'Msg when 'Id : comparison> = internal {
 } 
 
 type private PubSubState<'Id, 'Msg when 'Id : comparison> = 
-    | PubSubState of Map<'Id, PublishCallback<'Msg>>
+    | PubSubState of Map<'Id, PublishCallback<'Id, 'Msg>>
 
 let publishToAll msg subMap =
     subMap
-    |> Map.fold(fun acc _ pubFn ->
+    |> Map.fold(fun acc k pubFn ->
         async {
-            pubFn msg
+            pubFn k msg
         } :: acc
     ) List.empty
     |> Async.Parallel
@@ -44,7 +44,7 @@ let createPubSub<'Id, 'Msg when 'Id : comparison> () =
                     | Stop ->
                         return ()
                 }
-            loop <| PubSubState Map.empty<'Id, PublishCallback<'Msg>>
+            loop <| PubSubState Map.empty<'Id, PublishCallback<'Id, 'Msg>>
         )
     { Actor = actor }
 
